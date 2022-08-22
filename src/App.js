@@ -1,29 +1,20 @@
 import * as React from 'react';
-import {useState, useMemo} from 'react'
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
-import {Context,useValue} from './libs'
+import {useValue} from './Root'
 
-
-export default function ButtonAppBar() {
-  const [mode,setMode] = useState('light')
-  const darkTheme = createTheme({
-    palette: {
-      mode: mode,
-    },
-  });
+export default function App() {
+  const value = useValue();
   return (
-    <Context value={mode}>
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={value.theme}>
       <CssBaseline />
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -40,15 +31,12 @@ export default function ButtonAppBar() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             News
           </Typography>
-          <IconButton sx={{ ml: 1 }} onClick={()=>{
-            setMode(mode === 'light'? 'dark':'light')
-          }} color="inherit">
-        {mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
+          <IconButton sx={{ ml: 1 }} onClick={value.changeTheme.ct} color="inherit">
+        {value.theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
       </IconButton>
         </Toolbar>
       </AppBar>
     </Box>
     </ThemeProvider>
-    </Context>
   );
 }

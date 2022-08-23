@@ -1,14 +1,5 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import { ThemeProvider } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
-import Brightness4Icon from '@mui/icons-material/Brightness4';
-import Brightness7Icon from '@mui/icons-material/Brightness7';
+import {Box,AppBar,Toolbar,Typography,IconButton,ThemeProvider,CssBaseline} from '@mui/material';
+import {Menu, Brightness4,Brightness7} from '@mui/icons-material';
 import {useValue} from './Root'
 
 export default function App() {
@@ -26,13 +17,13 @@ export default function App() {
             aria-label="menu"
             sx={{ mr: 2 }}
           >
-            <MenuIcon />
+            <Menu />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             News
           </Typography>
           <IconButton sx={{ ml: 1 }} onClick={value.changeTheme.ct} color="inherit">
-        {value.theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
+        {value.theme.palette.mode === 'dark' ? <Brightness7 /> : <Brightness4 />}
       </IconButton>
         </Toolbar>
       </AppBar>

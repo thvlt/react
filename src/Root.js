@@ -7,6 +7,8 @@ export const useValue = () => useContext(RCtx)
 
 export default function Root() {
   const [mode,setMode] = useState('light')
+  const [op, setOp] = useState(false)
+
   // const changeTheme = useMemo(
   //   () => ({
   //     ct: () => setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'))
@@ -21,7 +23,7 @@ export default function Root() {
   const changeTheme = () =>  setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'))
 
   return (
-    <RCtx.Provider value={{theme,changeTheme}}>
+    <RCtx.Provider value={{theme,changeTheme,op,setOp}}>
        <App />
     </RCtx.Provider>
   );

@@ -22,7 +22,7 @@ export default function App() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             News
           </Typography>
-          <IconButton sx={{ ml: 1 }} onClick={value.changeTheme.ct} color="inherit">
+          <IconButton sx={{ ml: 1 }} onClick={value.changeTheme} color="inherit">
         {value.theme.palette.mode === 'dark' ? <Brightness7 /> : <Brightness4 />}
       </IconButton>
         </Toolbar>
